@@ -1,7 +1,10 @@
-﻿namespace DrumBeatsAPI.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DrumBeatsAPI.Models;
 
 public class Exercise
 {
+    [Key]
     public int Id { get; set; }
 
     public string Title { get; set; }

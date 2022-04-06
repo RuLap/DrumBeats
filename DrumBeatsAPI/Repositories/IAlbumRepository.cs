@@ -2,6 +2,6 @@
 
 namespace DrumBeatsAPI.Repositories;
 
-public interface IExerciseRepository : IRepository<Exercise>
+public interface IAlbumRepository : IRepository<Album>
 {
 }

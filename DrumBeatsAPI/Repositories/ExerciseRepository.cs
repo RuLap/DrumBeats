@@ -1,13 +1,14 @@
 ﻿using DrumBeatsAPI.Models;
+using DrumBeatsAPI.Models.Contexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrumBeatsAPI.Repositories;
 
 public class ExerciseRepository : IExerciseRepository
 {
-    private readonly ExerciseContext _context;
+    private readonly DrumBeatsContext _context;
 
-    public ExerciseRepository(ExerciseContext context)
+    public ExerciseRepository(DrumBeatsContext context)
     {
         _context = context;
     }
