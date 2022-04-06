@@ -17,4 +17,8 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.0.0-rc2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\exercises.css" />
+  </ItemGroup>
+
 </Project>

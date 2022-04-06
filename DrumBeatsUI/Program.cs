@@ -17,8 +17,14 @@ try
         c.BaseAddress = new Uri("https://localhost:7248");
         c.DefaultRequestHeaders.Add("Accept", "application/.json");
     });
+    builder.Services.AddHttpClient<ISongService, SongService>(c =>
+    {
+        c.BaseAddress = new Uri("https://localhost:7248");
+        c.DefaultRequestHeaders.Add("Accept", "application/.json");
+    });
 
     builder.Services.AddAutoMapper(cfg => cfg.AddProfile<ExerciseProfile>());
+    builder.Services.AddAutoMapper(cfg => cfg.AddProfile<SongProfile>());
 
     // NLog: Setup NLog for Dependency injection
     builder.Logging.ClearProviders();
@@ -41,7 +47,7 @@ try
     app.UseRouting();
     app.MapControllerRoute(
         name: "default",
-        pattern: "{controller=Exercise}/{action=Exercises}");
+        pattern: "{controller=Song}/{action=Songs}");
 
     app.UseAuthorization();
 

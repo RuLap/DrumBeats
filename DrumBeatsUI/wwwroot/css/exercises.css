@@ -1,0 +1,7 @@
+﻿#ExerciseCard .card .card-content{
+    max-width: 200px;
+}
+
+#CardImage {
+    border-radius: 30%;
+}

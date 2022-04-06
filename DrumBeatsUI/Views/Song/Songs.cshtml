@@ -1,0 +1,38 @@
+﻿@using DrumBeatsUI.Models
+@model IEnumerable<Song>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Songs";
+}
+<h1 style="align-content: center">Songs</h1>
+<div class="container">
+    <div class="row row-cols-2">
+        @foreach (Song song in Model)
+        {
+            <div class="col">
+                <div class="card mb-3" style="max-width: 540px;" id="#ExerciseCard">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img id="#CardImage"
+                                 style="height: 95%"
+                                 src="@song.Album.Image"
+                                 alt="@song.Album.Title"
+                                 class="img-fluid rounded"/>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@song.Title</h5>
+                                <p class="card-text">
+                                    @song.Artist.Name
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">From Album: @song.Album.Title</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
