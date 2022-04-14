@@ -40,4 +40,26 @@ public class SongService : ISongService
 
         return responseObject;
     }
+
+    public async Task<IEnumerable<Artist>> GetArtists()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, "api/Artist");
+
+        var response = await _client.SendAsync(request);
+        var json = await response.Content.ReadAsStringAsync();
+        var responseObject = JsonConvert.DeserializeObject<IEnumerable<Artist>>(json);
+
+        return responseObject;
+    }
+    
+    public async Task<IEnumerable<Album>> GetAlbums()
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, "api/Album");
+
+        var response = await _client.SendAsync(request);
+        var json = await response.Content.ReadAsStringAsync();
+        var responseObject = JsonConvert.DeserializeObject<IEnumerable<Album>>(json);
+
+        return responseObject;
+    }
 }

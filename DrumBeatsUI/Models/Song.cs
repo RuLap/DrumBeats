@@ -11,4 +11,9 @@ public class Song
     public Artist Artist { get; set; }
     
     public Album Album { get; set; }
+
+    public string GetDuration()
+    {
+        return $"{Duration / 60:D2}:{Duration % 60:D2}";
+    }
 }

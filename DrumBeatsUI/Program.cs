@@ -10,8 +10,9 @@ logger.Debug("Init main");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-
-    builder.Services.AddMvc();
+    
+    builder.Services.AddRazorPages();
+    
     builder.Services.AddHttpClient<IExerciseService, ExerciseService>(c =>
     {
         c.BaseAddress = new Uri("https://localhost:7248");
@@ -45,11 +46,12 @@ try
     app.UseStaticFiles();
 
     app.UseRouting();
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Song}/{action=Songs}");
 
     app.UseAuthorization();
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapRazorPages();
+    });
 
     app.Run();
 }

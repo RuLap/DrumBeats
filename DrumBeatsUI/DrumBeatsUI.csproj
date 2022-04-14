@@ -7,9 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Ajax" Version="0.0.0" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="jQuery" Version="3.6.0" />
+    <PackageReference Include="jQuery.Ajax.Unobtrusive" Version="2.0.20710" />
+    <PackageReference Include="jQuery.AjaxForm" Version="1.0.8" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0-preview1.22069.1" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Ajax" Version="3.2.6" />
+    <PackageReference Include="Microsoft.jQuery.Unobtrusive.Validation" Version="3.2.12" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NLog" Version="5.0.0-rc2" />
@@ -18,7 +24,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Ajax\dist\jquery.unobtrusive-ajax.js" />
+    <None Include="wwwroot\Ajax\dist\jquery.unobtrusive-ajax.min.js" />
+    <None Include="wwwroot\Ajax\LICENSE.txt" />
+    <None Include="wwwroot\Ajax\README.md" />
     <None Include="wwwroot\css\exercises.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Exercise\Exercises.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Shared\_Layout.cshtml" />
+    <_ContentIncludedByDefault Remove="Views\Song\EditSong.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Ajax\package.json" />
+    <Content Remove="wwwroot\Ajax\dist\jquery.unobtrusive-ajax.min.js" />
+    <Content Remove="wwwroot\Ajax\README.md" />
+    <Content Remove="wwwroot\Ajax\LICENSE.txt" />
+    <Content Remove="libman.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Ajax\dist" />
   </ItemGroup>
 
 </Project>

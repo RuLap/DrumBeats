@@ -1,13 +1,21 @@
-﻿@using DrumBeatsUI.Models
-@model IEnumerable<Song>
+﻿@page
+@using DrumBeatsUI.Models
+@model SongsModel
+
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Songs";
 }
+@Html.AntiForgeryToken()
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
 <h1 style="align-content: center">Songs</h1>
 <div class="container">
     <div class="row row-cols-2">
-        @foreach (Song song in Model)
+        <button type="button" class="btn btn-primary" data-toggle="ajax-modal" data-url="@Url.Page("Songs", "AddSongPartial")">Add Song</button>
+        @foreach (Song song in Model.Songs)
         {
             <div class="col">
                 <div class="card mb-3" style="max-width: 540px;" id="#ExerciseCard">
@@ -26,7 +34,7 @@
                                     @song.Artist.Name
                                 </p>
                                 <p class="card-text">
-                                    <small class="text-muted">From Album: @song.Album.Title</small>
+                                    <small class="text-muted">@song.GetDuration()</small>
                                 </p>
                             </div>
                         </div>
